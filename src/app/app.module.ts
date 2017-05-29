@@ -10,6 +10,8 @@ import { LoginPage } from '../pages/login/login';
 import { IAutenticacaoService } from '../providers.interfaces/iAutenticacaoService';
 import { AutenticacaoService } from '../providers/autenticacao-service/autenticacao-service';
 
+import { HttpModule} from '@angular/http';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -18,7 +20,8 @@ import { AutenticacaoService } from '../providers/autenticacao-service/autentica
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
