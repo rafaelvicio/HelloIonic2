@@ -3,6 +3,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { PaginaBase } from '../../infraestrutura/PaginaBase';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { HelloIonicValidades } from '../../validadores/HelloionicValidadores';
+import { LoginModel } from '../../models/LoginModel';
+import { HomePage } from '../home/home';
+import { AlertController } from 'ionic-angular';
 
 /**
  * Generated class for the LoginPage page.
@@ -19,10 +22,13 @@ export class LoginPage extends PaginaBase{
 
   loginFrmGroup: FormGroup;
   foiSubmetido: boolean;
+  loginModel: LoginModel;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder) {
-    super({ formBuilder: formBuilder})
+  constructor(public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder,
+              public alertCtrl: AlertController) {
+    super({ formBuilder: formBuilder, alertCtrl: alertCtrl});
     this.foiSubmetido = false;
+    this.loginModel = new LoginModel();
   }
 
   ionViewDidLoad() {
@@ -32,9 +38,11 @@ export class LoginPage extends PaginaBase{
   login(): void {
     this.foiSubmetido = true;
     if(this.loginFrmGroup.valid) {
-      alert('Ok!');
-    } else {
-      alert('Erro!');
+      if(this.loginModel.email == "rafaelvicio@icloud.com" && this.loginModel.senha == "123456789"){
+        this.navCtrl.setRoot(HomePage, {}, {animate: true, direction: 'forward'});
+      } else {
+        this.mostrarMensagemErro("Login e/ou senha incorretos");
+      }
     }
   }
 
