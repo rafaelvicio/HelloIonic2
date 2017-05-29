@@ -27455,6 +27455,14 @@ ion-navbar.toolbar {
   }
 }
 
+.invalido {
+  border-bottom: 2px solid darkred !important;
+}
+
+.mensagem-invalido {
+  color: darkred;
+}
+
 page-login .logo-col {
   text-align: center;
 }

@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { PaginaBase } from '../../infraestrutura/PaginaBase';
+import { FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { HelloIonicValidades } from '../../validadores/HelloionicValidadores';
 
 /**
  * Generated class for the LoginPage page.
@@ -12,13 +15,34 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   selector: 'page-login',
   templateUrl: 'login.html',
 })
-export class LoginPage {
+export class LoginPage extends PaginaBase{
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  loginFrmGroup: FormGroup;
+  foiSubmetido: boolean;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder) {
+    super({ formBuilder: formBuilder})
+    this.foiSubmetido = false;
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
+  }
+
+  login(): void {
+    this.foiSubmetido = true;
+    if(this.loginFrmGroup.valid) {
+      alert('Ok!');
+    } else {
+      alert('Erro!');
+    }
+  }
+
+  protected docarregarValidores(): void {
+    this.loginFrmGroup = this._formBuilder.group({
+      email: ['', Validators.compose([Validators.required, HelloIonicValidades.email])],
+      senha: ['', Validators.compose([Validators.required, Validators.minLength(3)])]
+    });
   }
 
 }

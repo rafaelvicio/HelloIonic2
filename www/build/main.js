@@ -20308,14 +20308,14 @@ var /** @type {?} */ CLS = {
 /* unused harmony export MinLengthValidator */
 /* unused harmony export PatternValidator */
 /* unused harmony export RequiredValidator */
-/* unused harmony export FormBuilder */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return FormBuilder; });
 /* unused harmony export AbstractControl */
 /* unused harmony export FormArray */
 /* unused harmony export FormControl */
 /* unused harmony export FormGroup */
 /* unused harmony export NG_ASYNC_VALIDATORS */
 /* unused harmony export NG_VALIDATORS */
-/* unused harmony export Validators */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return Validators; });
 /* unused harmony export VERSION */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FormsModule; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return ReactiveFormsModule; });
@@ -55784,7 +55784,20 @@ exports.isFunction = isFunction;
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__infraestrutura_PaginaBase__ = __webpack_require__(262);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__validadores_HelloionicValidadores__ = __webpack_require__(263);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -55796,28 +55809,51 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
+
+
 /**
  * Generated class for the LoginPage page.
  *
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
-var LoginPage = (function () {
-    function LoginPage(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
+var LoginPage = (function (_super) {
+    __extends(LoginPage, _super);
+    function LoginPage(navCtrl, navParams, formBuilder) {
+        var _this = _super.call(this, { formBuilder: formBuilder }) || this;
+        _this.navCtrl = navCtrl;
+        _this.navParams = navParams;
+        _this.formBuilder = formBuilder;
+        _this.foiSubmetido = false;
+        return _this;
     }
     LoginPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad LoginPage');
     };
+    LoginPage.prototype.login = function () {
+        this.foiSubmetido = true;
+        if (this.loginFrmGroup.valid) {
+            alert('Ok!');
+        }
+        else {
+            alert('Erro!');
+        }
+    };
+    LoginPage.prototype.docarregarValidores = function () {
+        this.loginFrmGroup = this._formBuilder.group({
+            email: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["e" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_3__angular_forms__["e" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_4__validadores_HelloionicValidadores__["a" /* HelloIonicValidades */].email])],
+            senha: ['', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["e" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_3__angular_forms__["e" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_3__angular_forms__["e" /* Validators */].minLength(3)])]
+        });
+    };
     return LoginPage;
-}());
+}(__WEBPACK_IMPORTED_MODULE_2__infraestrutura_PaginaBase__["a" /* PaginaBase */]));
 LoginPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-        selector: 'page-login',template:/*ion-inline-start:"/home/vicio/Workspace/HelloIonic2/src/pages/login/login.html"*/'<!--\n  Generated template for the LoginPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-content padding>\n  <ion-grid>\n    <ion-row>\n      <ion-col col-12 class="logo-col">\n        Logo\n      </ion-col>\n    </ion-row>\n    <ion-row>\n      <ion-col col-12>\n        <div class="login-box">\n          <form>\n            <ion-row>\n              <ion-col>\n\n                <ion-list inset>\n                  <ion-item>\n                    <ion-input type="text" placeholder="E-mail" name="email"></ion-input>\n                  </ion-item>\n                  <ion-item>\n                    <ion-input type="password" placeholder="Senha" name="senha"></ion-input>\n                  </ion-item>\n                </ion-list>\n\n              </ion-col>\n            </ion-row>\n            <ion-row>\n              <ion-col>\n                <button ion-button full icon-left class="btn-login">\n                  <ion-icon name="log-in"></ion-icon>\n                  Entrar\n                </button>\n              </ion-col>\n            </ion-row>\n          </form>\n        </div>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n'/*ion-inline-end:"/home/vicio/Workspace/HelloIonic2/src/pages/login/login.html"*/,
+        selector: 'page-login',template:/*ion-inline-start:"C:\GitHub\HelloIonic2\src\pages\login\login.html"*/'<!--\n\n  Generated template for the LoginPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-content padding>\n\n  <ion-grid>\n\n    <ion-row>\n\n      <ion-col col-12 class="logo-col">\n\n        Logo\n\n      </ion-col>\n\n    </ion-row>\n\n    <ion-row>\n\n      <ion-col col-12>\n\n        <div class="login-box">\n\n          <form [formGroup]="loginFrmGroup">\n\n            <ion-row>\n\n              <ion-col>\n\n\n\n                <ion-list inset>\n\n                  <ion-item>\n\n                    <ion-input type="text" placeholder="E-mail" name="email" formControlName="email"\n\n                      [class.invalido]="foiSubmetido && !loginFrmGroup.controls.email.valid"></ion-input>\n\n                  </ion-item>\n\n                  <p *ngIf="foiSubmetido && !loginFrmGroup.controls.email.valid" class="mensagem-invalido">\n\n                    Verifique o e-mail digitado\n\n                  </p>\n\n                  <ion-item>\n\n                    <ion-input type="password" placeholder="Senha" name="senha" formControlName="senha"\n\n                    [class.invalido]="foiSubmetido && !loginFrmGroup.controls.senha.valid"></ion-input>\n\n                  </ion-item>\n\n                  <p *ngIf="foiSubmetido && !loginFrmGroup.controls.senha.valid" class="mensagem-invalido">\n\n                    Verifique a senha\n\n                  </p>\n\n                </ion-list>\n\n\n\n              </ion-col>\n\n            </ion-row>\n\n            <ion-row>\n\n              <ion-col>\n\n                <button ion-button full icon-left class="btn-login" (click)="login()">\n\n                  <ion-icon name="log-in"></ion-icon>\n\n                  Entrar\n\n                </button>\n\n              </ion-col>\n\n            </ion-row>\n\n          </form>\n\n        </div>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\GitHub\HelloIonic2\src\pages\login\login.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* FormBuilder */]])
 ], LoginPage);
 
 //# sourceMappingURL=login.js.map
@@ -74653,6 +74689,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+// import { HomePage } from '../pages/home/home';
 
 var MyApp = (function () {
     function MyApp(platform, statusBar, splashScreen) {
@@ -74667,7 +74704,7 @@ var MyApp = (function () {
     return MyApp;
 }());
 MyApp = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({template:/*ion-inline-start:"/home/vicio/Workspace/HelloIonic2/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/home/vicio/Workspace/HelloIonic2/src/app/app.html"*/
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({template:/*ion-inline-start:"C:\GitHub\HelloIonic2\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n\n'/*ion-inline-end:"C:\GitHub\HelloIonic2\src\app\app.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
 ], MyApp);
@@ -74701,7 +74738,7 @@ var HomePage = (function () {
 }());
 HomePage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-        selector: 'page-home',template:/*ion-inline-start:"/home/vicio/Workspace/HelloIonic2/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Ionic Blank\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  The world is your oyster.\n  <p>\n    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.\n  </p>\n</ion-content>\n'/*ion-inline-end:"/home/vicio/Workspace/HelloIonic2/src/pages/home/home.html"*/
+        selector: 'page-home',template:/*ion-inline-start:"C:\GitHub\HelloIonic2\src\pages\home\home.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Ionic Blank\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n  The world is your oyster.\n\n  <p>\n\n    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.\n\n  </p>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\GitHub\HelloIonic2\src\pages\home\home.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]])
 ], HomePage);
@@ -112073,6 +112110,50 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
 //# sourceMappingURL=main.js.map
+
+/***/ }),
+/* 261 */,
+/* 262 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PaginaBase; });
+var PaginaBase = (function () {
+    function PaginaBase(cpb) {
+        this._formBuilder = cpb.formBuilder;
+        this.carregarValidores();
+    }
+    PaginaBase.prototype.carregarValidores = function () {
+        if (this._formBuilder != null) {
+            this.docarregarValidores();
+        }
+    };
+    PaginaBase.prototype.docarregarValidores = function () {
+    };
+    return PaginaBase;
+}());
+
+//# sourceMappingURL=PaginaBase.js.map
+
+/***/ }),
+/* 263 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HelloIonicValidades; });
+var HelloIonicValidades = (function () {
+    function HelloIonicValidades() {
+    }
+    HelloIonicValidades.email = function (fc) {
+        var emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_'{|}~-]+@[a-zA-Z0-9]+(?:\.[a-zA-Z0-9-]+)*$/;
+        return emailRegex.test(fc.value) ? null : {
+            "Email inválido": true
+        };
+    };
+    return HelloIonicValidades;
+}());
+
+//# sourceMappingURL=HelloionicValidadores.js.map
 
 /***/ })
 /******/ ]);
