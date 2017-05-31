@@ -1,6 +1,5 @@
 import { FormBuilder} from '@angular/forms';
-import { AlertController } from 'ionic-angular';
-
+import { AlertController, LoadingController, ToastController } from 'ionic-angular';
 import { ConfiguracaoPagianBase } from '../infraestrutura/ConfiguragaoPaginaBase';
 
 export abstract class PaginaBase{
