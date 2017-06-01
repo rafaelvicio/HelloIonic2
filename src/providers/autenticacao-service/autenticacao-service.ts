@@ -17,7 +17,7 @@ import { NativeStorage } from '@ionic-native/native-storage';
 @Injectable()
 export class AutenticacaoService implements IAutenticacaoService {
 
-  constructor(public http: Http, private NativeStorage: NativeStorage) {
+  constructor(public http: Http, private nativeStorage: NativeStorage) {
     console.log('Hello AutenticacaoServiceProvider Provider');
   }
 
@@ -33,10 +33,10 @@ export class AutenticacaoService implements IAutenticacaoService {
     return this.http.post(HelloIonicConstantes.BASE_URL + '/' + HelloIonicConstantes.Auth.LOGIN, corporRequisicao)
       .map(response => {
         let resp = response.json();
-        this.NativeStorage.setItem('token_autenticacao', { token: resp.data.token })
+        this.nativeStorage.setItem('token_autenticacao', { token: resp.data.token })
                             .then(
-                              () => console.log('Token armazenado',
-                              (erro) => alert(erro))
+                              () => console.log('Token armazenado'),
+                              (erro) => alert(erro)
                             );
       });
   }
