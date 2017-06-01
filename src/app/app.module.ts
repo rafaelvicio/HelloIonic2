@@ -16,6 +16,8 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { ProdutosPage } from '../pages/produtos/produtos';
 import { PerfilPage } from '../pages/perfil/perfil';
 
+import { NativeStorage } from '@ionic-native/native-storage';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -43,7 +45,8 @@ import { PerfilPage } from '../pages/perfil/perfil';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    {provide: 'IAutenticacaoService', useClass: AutenticacaoService}
+    {provide: 'IAutenticacaoService', useClass: AutenticacaoService},
+    NativeStorage
   ]
 })
 export class AppModule {}
