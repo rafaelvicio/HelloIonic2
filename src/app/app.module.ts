@@ -12,11 +12,18 @@ import { AutenticacaoService } from '../providers/autenticacao-service/autentica
 
 import { HttpModule} from '@angular/http';
 
+import { TabsPage } from '../pages/tabs/tabs';
+import { ProdutosPage } from '../pages/produtos/produtos';
+import { PerfilPage } from '../pages/perfil/perfil';
+
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    LoginPage
+    LoginPage,
+    TabsPage,
+    ProdutosPage,
+    PerfilPage
   ],
   imports: [
     BrowserModule,
@@ -27,7 +34,10 @@ import { HttpModule} from '@angular/http';
   entryComponents: [
     MyApp,
     HomePage,
-    LoginPage
+    LoginPage,
+    TabsPage,
+    ProdutosPage,
+    PerfilPage
   ],
   providers: [
     StatusBar,
