@@ -5,7 +5,7 @@ import 'rxjs/add/operator/map';
 import { IAutenticacaoService } from '../../providers.interfaces/iAutenticacaoService';
 import { LoginModel } from '../../models/LoginModel';
 import { Observable } from 'rxjs/Observable';
-import { HelloIonicConstantes } from '../app/HelloIonicConstantes';
+import { HelloIonicConstantes } from '../../app/HelloIonicConstantes';
 
 /*
   Generated class for the AutenticacaoServiceProvider provider.

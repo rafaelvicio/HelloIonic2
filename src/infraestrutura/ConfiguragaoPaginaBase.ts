@@ -5,7 +5,7 @@ export interface ConfiguracaoPagianBase {
 
   formBuilder?: FormBuilder;
   alertCtrl?: AlertController;
-  LoadingController?: LoadingController;
-  ToastController?: ToastController;
+  loadingCtrl?: LoadingController;
+  toastCtrl?: ToastController;
 
 }
