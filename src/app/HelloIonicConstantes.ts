@@ -5,4 +5,8 @@ export class HelloIonicConstantes {
     static readonly Auth = {
         LOGIN: 'login'
     }
+
+    static readonly Produtos = {
+        GET: 'produtos'
+    }
 }

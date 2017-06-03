@@ -15,8 +15,10 @@ import { HttpModule} from '@angular/http';
 import { TabsPage } from '../pages/tabs/tabs';
 import { ProdutosPage } from '../pages/produtos/produtos';
 import { PerfilPage } from '../pages/perfil/perfil';
+import { DetalhesProdutosPage } from '../pages/detalhes-produtos/detalhes-produtos';
 
 import { NativeStorage } from '@ionic-native/native-storage';
+import { ProdutoServiceProvider } from '../providers/produto-service/produto-service';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { NativeStorage } from '@ionic-native/native-storage';
     LoginPage,
     TabsPage,
     ProdutosPage,
-    PerfilPage
+    PerfilPage,
+    DetalhesProdutosPage
   ],
   imports: [
     BrowserModule,
@@ -39,14 +42,16 @@ import { NativeStorage } from '@ionic-native/native-storage';
     LoginPage,
     TabsPage,
     ProdutosPage,
-    PerfilPage
+    PerfilPage,
+    DetalhesProdutosPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     {provide: 'IAutenticacaoService', useClass: AutenticacaoService},
-    NativeStorage
+    NativeStorage,
+    ProdutoServiceProvider
   ]
 })
 export class AppModule {}
