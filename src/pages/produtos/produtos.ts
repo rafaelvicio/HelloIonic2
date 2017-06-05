@@ -19,11 +19,14 @@ import { DetalhesProdutosPage } from '../detalhes-produtos/detalhes-produtos';
 export class ProdutosPage extends PaginaBase {
 
   produtos: ProdutoModel[];
+  produtosFiltrados: ProdutoModel[];
+  termoPesquisa: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
   public loadingCtrl: LoadingController, public ToastCtrl: ToastController, public AlertCtrl: AlertController,
   private produtoService: ProdutoServiceProvider) {
     super({ alertCtrl: AlertCtrl, loadingCtrl: loadingCtrl, toastCtrl: ToastCtrl})
+    this.termoPesquisa = '';
   }
 
   ionViewDidLoad() {
@@ -32,6 +35,7 @@ export class ProdutosPage extends PaginaBase {
     this.produtoService.listaProdutos().subscribe(response => {
       this.esconderLoading();
       this.produtos = response;
+      this.produtosFiltrados = response;
     },
     erro => {
       this.esconderLoading();
@@ -43,6 +47,16 @@ export class ProdutosPage extends PaginaBase {
     this.navCtrl.push(DetalhesProdutosPage, {
       produto: produto
     });
+  }
+
+  filtrarProdutosPorNome(): void {
+    if(this.termoPesquisa == ''){
+      this.produtosFiltrados = this.produtos;
+    } else {
+      this.produtosFiltrados = this.produtos.filter((produto) => {
+        return produto.nome.toLowerCase().indexOf(this.termoPesquisa.toLowerCase()) > -1;
+      })
+    }
   }
 
 }
