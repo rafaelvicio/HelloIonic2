@@ -24,6 +24,9 @@
 
 
 <ion-content padding>
+
+  <ion-refresher (ionRefresh)="atualizarListaProdutos($event)">
+  </ion-refresher>
   <ion-list>
     <button ion-item *ngFor="let produto of produtos" (click)="mostrarDetalhesProduto(produto)">
       <ion-icon [name]="produto.icone" item-left></ion-icon>

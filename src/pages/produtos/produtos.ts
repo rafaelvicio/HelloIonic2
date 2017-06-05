@@ -117,5 +117,20 @@ export class ProdutosPage extends PaginaBase {
     actionSheet.present();
   }
 
+  atualizarListaProdutos(refresher): void {
+    this.produtoService.listaProdutos().subscribe(data => {
+      this.produtos = data;
+      this.produtosFiltrados = data;
+      this.termoPesquisa = '';
+      this.filtradoPorCategoria = false;
+      this.categoriaSelecionada = '';
+      refresher.complete();
+    },
+    (erro) => {
+      refresher.complete();
+      this.mostrarMensagemErro(erro);
+    });
+  }
+
 
 }
