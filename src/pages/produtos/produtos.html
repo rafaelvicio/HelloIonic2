@@ -13,6 +13,11 @@
       </ion-searchbar>
 
     </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="filtrarPorCategoria">
+          <ion-icon name="funnel" [style.color]="filtradoPorCategoria ? 'orange' : 'gray' "></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
